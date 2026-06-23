@@ -1,0 +1,101 @@
+<section id="home" class="landing-hero">
+  <div class="ambient-grid"></div>
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
+  <div class="orb orb-three"></div>
+
+  <div class="particles" aria-hidden="true">
+    @for (particle of particles; track particle.id) {
+      <span
+        [style.left.%]="particle.x"
+        [style.top.%]="particle.y"
+        [style.width.px]="particle.size"
+        [style.height.px]="particle.size"
+        [style.animation-delay.s]="particle.delay"
+        [style.animation-duration.s]="particle.duration"
+      ></span>
+    }
+  </div>
+
+  <div class="container hero-shell">
+    <div class="hero-content">
+      <p class="greeting hero-fade fade-two">Hello, I'm Vignesh K</p>
+      <h1 class="hero-fade fade-three">
+        Building digital
+        <span>experiences that matter.</span>
+      </h1>
+
+      <div class="role-line hero-fade fade-four">
+        <span class="role-prefix">I'm an</span>
+        <strong>{{ typedRole() }}</strong><i class="typing-cursor"></i>
+      </div>
+
+      <p class="hero-summary hero-fade fade-five">
+        Aspiring Angular Frontend Developer with hands-on internship experience,
+        focused on building responsive, scalable, and user-friendly web applications.
+      </p>
+    </div>
+
+    <div class="profile-stage hero-fade fade-four">
+      <div class="profile-visual">
+        <div class="profile-halo halo-one"></div>
+        <div class="profile-halo halo-two"></div>
+
+        <div class="profile-card">
+          <div class="profile-image-wrap">
+            <img
+              src="/vicky-profile-neon.png"
+              alt="Vignesh K in a professional suit"
+            />
+            <div class="image-shine"></div>
+          </div>
+          <div class="profile-caption">
+            <span><i></i> Open to work</span>
+            <strong>Vignesh K</strong>
+            <small>Angular Frontend Developer</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-actions">
+        <a class="hero-btn primary" routerLink="/" fragment="projects">
+          View Projects
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="hero-btn glass" href="/Vignesh-K-Resume.pdf" download="Vignesh-K-Resume.pdf">
+          <span aria-hidden="true">↓</span>
+          Download Resume
+        </a>
+      </div>
+
+      <div class="profile-socials" aria-label="Contact links">
+        <a class="social-icon" routerLink="/" fragment="contact" aria-label="Contact me" data-label="Contact">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M7 8h10M7 12h7m-9 8 3.5-3H18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h1v3Z"/>
+          </svg>
+        </a>
+        <a class="social-icon" href="mailto:msvicky904@gmail.com" aria-label="Email Vignesh" data-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16v12H4V6Zm0 1 8 6 8-6"/>
+          </svg>
+        </a>
+        <a
+          class="social-icon"
+          href="https://www.linkedin.com/in/vignesh-k603739303"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Vignesh on LinkedIn"
+          data-label="LinkedIn"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 9.5V18m0-12.2v.2M10.5 18v-8.5m0 3.7c.8-2.3 7-3 7 2V18M4 4h16v16H4V4Z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a class="scroll-indicator" routerLink="/" fragment="about" aria-label="Scroll to the about section">
+    <span></span>
+  </a>
+</section>

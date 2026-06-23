@@ -1,0 +1,27 @@
+<header class="navbar" [class.scrolled]="isScrolled">
+  <div class="container nav-inner">
+    <div class="brand">
+      <span>Vignesh</span>
+    </div>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      [class.open]="menuOpen"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation"
+      (click)="toggleMenu()"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" [class.open]="menuOpen" aria-label="Main navigation">
+      <a routerLink="/" fragment="home" (click)="closeMenu()">Home</a>
+      <a routerLink="/" fragment="about" (click)="closeMenu()">About</a>
+      <a routerLink="/" fragment="skills" (click)="closeMenu()">Skills</a>
+      <a routerLink="/" fragment="projects" (click)="closeMenu()">Projects</a>
+      <a routerLink="/" fragment="experience" (click)="closeMenu()">Certification</a>
+      <a class="nav-cta" routerLink="/" fragment="contact" (click)="closeMenu()">Let's talk</a>
+    </nav>
+  </div>
+</header>

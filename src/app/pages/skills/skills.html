@@ -1,0 +1,20 @@
+<section id="skills" class="section section-alt">
+  <div class="container reveal">
+    <div class="section-heading centered">
+      <p class="section-kicker">My toolkit</p>
+      <h2 class="section-title">Skills & <span>technologies</span></h2>
+      <p>I use modern frontend tools to turn product ideas into reliable experiences.</p>
+    </div>
+    <div class="skills-grid">
+      @for (skill of skills; track skill.name; let index = $index) {
+        <article class="skill-card" [style.--delay]="index * 50 + 'ms'">
+          <div class="skill-icon">{{ skill.icon }}</div>
+          <div>
+            <h3>{{ skill.name }}</h3>
+            <p>{{ skill.category }}</p>
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+<section id="projects" class="section">
+  <div class="container reveal">
+    <div class="section-heading heading-row">
+      <div>
+        <p class="section-kicker">Selected work</p>
+        <h2 class="section-title">Featured <span>projects</span></h2>
+      </div>
+      <p>A few projects where I explored real-world UI patterns, Angular architecture, and responsive design.</p>
+    </div>
+    <div class="projects-grid">
+      @for (project of projects; track project.title; let index = $index) {
+        <article class="project-card">
+          <div class="project-preview" [class]="'project-preview theme-' + ((index % 3) + 1)">
+            <div class="preview-browser">
+              <div class="preview-top"><i></i><i></i><i></i></div>
+              <div class="preview-content">
+                <span class="preview-label">{{ project.preview }}</span>
+                <div class="preview-lines"><i></i><i></i><i></i></div>
+              </div>
+            </div>
+            <span class="project-number">0{{ index + 1 }}</span>
+          </div>
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>{{ project.title }}</h3>
+              <a routerLink="/" fragment="contact" aria-label="Discuss this project">↗</a>
+            </div>
+            <p>{{ project.description }}</p>
+            <div class="tag-list">
+              @for (tag of project.tags; track tag) { <span>{{ tag }}</span> }
+            </div>
+            @if (project.href) {
+              <div class="project-links">
+                <a class="project-link" href="{{ project.href }}" target="_blank" rel="noreferrer">View Live</a>
+              </div>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

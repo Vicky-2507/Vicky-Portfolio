@@ -1,0 +1,27 @@
+:host {
+  display: block;
+}
+
+.timeline-item + .timeline-item {
+  margin-top: 34px;
+}
+
+.company-logo {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin-top: 12px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+@media (max-width: 520px) {
+  .timeline-item + .timeline-item {
+    margin-top: 28px;
+  }
+
+  .company-logo {
+    width: 135px;
+  }
+}
