@@ -1,75 +1,123 @@
-<section id="experience" class="section section-alt">
-  <div class="container reveal">
-    <div class="section-heading centered">
-      <p class="section-kicker">My journey</p>
-      <h2 class="section-title">Professional <span>experience</span></h2>
-      <p>Experience across frontend development and accounting has shaped me into a careful, analytical problem solver.</p>
+<section id="experience" class="experience-showcase">
+  <div class="experience-aurora" aria-hidden="true"></div>
+  <div class="experience-grid-lines" aria-hidden="true"></div>
+  <div class="experience-stars" aria-hidden="true">
+    @for (star of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]; track star) {
+      <span></span>
+    }
+  </div>
+  <div class="experience-waves" aria-hidden="true">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="container experience-shell reveal">
+    <div class="experience-heading">
+      <p class="experience-kicker">Professional Experience</p>
+      <h2>Professional <span>Experience</span></h2>
+      <p>
+        A premium snapshot of my frontend growth, business experience, and
+        certifications, designed for quick recruiter scanning.
+      </p>
     </div>
 
-    <div class="timeline">
-      <article class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-date">5 Months</div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <div>
-              <h3>Angular Intern</h3>
-              <img
-                class="company-logo"
-                src="/sparkout-logo.svg"
-                alt="Sparkout Tech Solutions logo"
-              />
-            </div>
-            <span>Frontend</span>
-          </div>
-          <p>Completed hands-on Angular internship training focused on practical application development.</p>
-          <ul>
-            <li>Worked with Angular components, routing, and responsive UI development.</li>
-            <li>Built Angular functionality using CRUD operations.</li>
-            <li>Created reusable components and integrated application APIs.</li>
-          </ul>
-        </div>
-      </article>
+    <div
+      class="experience-carousel"
+      (mouseenter)="pauseAutoplay()"
+      (mouseleave)="resumeAutoplay()"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <button class="carousel-button carousel-button-prev" type="button" aria-label="Previous experience" (click)="previous()">
+        <span aria-hidden="true"></span>
+      </button>
 
-      <article class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-date">2023 — 2025</div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <div>
-              <h3>Accounts Professional</h3>
-              <p>Sun Alloys</p>
-            </div>
-            <span>Accounting</span>
-          </div>
-          <p>Managed daily financial operations with a strong focus on accuracy and coordination.</p>
-          <ul>
-            <li>Handled accounts payable, receivable, cash, and vendor coordination.</li>
-            <li>Maintained general ledger records and processed journal entries.</li>
-            <li>Processed ESI and PF contributions accurately.</li>
-          </ul>
-        </div>
-      </article>
+      <div class="carousel-stage" aria-live="polite">
+        <div class="orbit-glow" aria-hidden="true"></div>
+        @for (card of cards; track card.title; let index = $index) {
+          <article
+            class="experience-card"
+            [attr.data-position]="cardPosition(index)"
+            [attr.data-accent]="card.accent"
+            [attr.aria-hidden]="index === activeIndex ? 'false' : 'true'"
+            (mousemove)="tiltCard($event)"
+            (mouseleave)="resetTilt($event)"
+          >
+            <span class="card-border" aria-hidden="true"></span>
+            <span class="light-sweep" aria-hidden="true"></span>
+            <span class="card-particle particle-one" aria-hidden="true"></span>
+            <span class="card-particle particle-two" aria-hidden="true"></span>
+            <span class="card-particle particle-three" aria-hidden="true"></span>
 
-      <article class="timeline-item">
-        <div class="timeline-marker"></div>
-        <div class="timeline-date">3 Months</div>
-        <div class="timeline-card">
-          <div class="timeline-header">
-            <div>
-              <h3>Accounts Intern</h3>
-              <p>Naveenaprabhu & Association</p>
+            <div class="card-left">
+              <div class="logo-orbit" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </div>
+              <div class="experience-logo">
+                @if (card.logoSrc) {
+                  <img [src]="card.logoSrc" [alt]="card.organization + ' logo'" />
+                } @else {
+                  <strong>{{ card.logoText }}</strong>
+                }
+              </div>
+
+              <div class="meta-stack" aria-label="Experience details">
+                <span>{{ card.duration }}</span>
+                <span>{{ card.employmentType }}</span>
+                <span>{{ card.location }}</span>
+              </div>
+
+              <div class="timeline-pulse" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
             </div>
-            <span>Internship</span>
-          </div>
-          <p>Supported accounting, taxation, payroll, and statutory compliance work.</p>
-          <ul>
-            <li>Assisted with invoice processing and payment tracking.</li>
-            <li>Prepared and filed Income Tax Returns.</li>
-            <li>Supported payroll processing, ESI, PF, and compliance activities.</li>
-          </ul>
-        </div>
-      </article>
+
+            <div class="card-right">
+              <span class="category-badge">{{ card.category }}</span>
+              <h3>{{ card.title }}</h3>
+              <p class="organization">{{ card.organization }}</p>
+              <p class="description">{{ card.description }}</p>
+
+              <ul class="achievement-list">
+                @for (bullet of card.bullets; track bullet) {
+                  <li>{{ bullet }}</li>
+                }
+              </ul>
+
+              <div class="technology-list" aria-label="Technologies used">
+                @for (technology of card.technologies; track technology) {
+                  <span>{{ technology }}</span>
+                }
+              </div>
+
+              <a class="details-button" href="/Vignesh-K-Resume.pdf" target="_blank" rel="noreferrer">
+                View Details
+                <span aria-hidden="true">+</span>
+              </a>
+            </div>
+          </article>
+        }
+      </div>
+
+      <button class="carousel-button carousel-button-next" type="button" aria-label="Next experience" (click)="next()">
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div class="carousel-dots" aria-label="Experience carousel pagination">
+      @for (card of cards; track card.title; let index = $index) {
+        <button
+          type="button"
+          [class.active]="index === activeIndex"
+          [attr.aria-label]="'Show ' + card.title"
+          [attr.aria-current]="index === activeIndex ? 'true' : 'false'"
+          (click)="goTo(index)"
+        ></button>
+      }
     </div>
   </div>
 </section>
