@@ -6,11 +6,11 @@
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  padding: 28px 0 18px;
+  padding: 112px 0 18px;
   background:
     radial-gradient(circle at 15% 34%, rgba(14, 255, 213, 0.12), transparent 26%),
-    radial-gradient(circle at 52% 88%, rgba(143, 79, 255, 0.13), transparent 30%),
-    radial-gradient(circle at 88% 36%, rgba(47, 155, 255, 0.12), transparent 28%),
+    radial-gradient(circle at 52% 88%, rgba(22, 245, 200, 0.1), transparent 30%),
+    radial-gradient(circle at 88% 36%, rgba(22, 245, 200, 0.08), transparent 28%),
     #060b1a;
 }
 
@@ -36,13 +36,13 @@
   bottom: 14%;
   width: 360px;
   height: 360px;
-  background: rgba(47, 155, 255, 0.12);
+  background: rgba(22, 245, 200, 0.1);
 }
 
 .projects-shell {
   position: relative;
   z-index: 1;
-  width: min(980px, calc(100% - 24px));
+  width: min(1120px, calc(100% - 32px));
 }
 
 .projects-heading {
@@ -68,7 +68,7 @@
 
 .projects-heading h2 span {
   color: transparent;
-  background: linear-gradient(135deg, #8d6cff 10%, #2ed7ff 52%, #16f5c8);
+  background: linear-gradient(135deg, #9fffe9 10%, #16f5c8 52%, #62ffd8);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -82,9 +82,9 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(4, 230px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   justify-content: center;
-  gap: 18px;
+  gap: 16px;
   perspective: 1200px;
 }
 
@@ -97,7 +97,7 @@
   --mouse-y: 50%;
   position: relative;
   display: flex;
-  width: 230px;
+  width: 100%;
   height: 340px;
   min-height: 0;
   flex-direction: column;
@@ -259,8 +259,10 @@
 
 .project-link {
   display: inline-flex;
-  width: fit-content;
+  width: 100%;
+  min-height: 34px;
   align-items: center;
+  justify-content: space-between;
   gap: 7px;
   margin-top: 10px;
   padding-top: 8px;
@@ -278,7 +280,6 @@
 }
 
 .project-link:hover {
-  gap: 12px;
   text-shadow: 0 0 18px rgba(var(--accent-rgb), 0.55);
 }
 
@@ -292,18 +293,18 @@
 }
 
 .accent-purple {
-  --accent: #b16cff;
-  --accent-rgb: 177, 108, 255;
+  --accent: #16f5c8;
+  --accent-rgb: 22, 245, 200;
 }
 
 .accent-orange {
-  --accent: #ff9f2f;
-  --accent-rgb: 255, 159, 47;
+  --accent: #16f5c8;
+  --accent-rgb: 22, 245, 200;
 }
 
 .accent-blue {
-  --accent: #3aa7ff;
-  --accent-rgb: 58, 167, 255;
+  --accent: #16f5c8;
+  --accent-rgb: 22, 245, 200;
 }
 
 .project-particle {
@@ -320,7 +321,7 @@
 .particle-one { top: 22%; left: 15%; }
 .particle-two { top: 36%; right: 22%; width: 5px; height: 5px; animation-delay: -1.5s; }
 .particle-three { bottom: 19%; left: 46%; width: 6px; height: 6px; animation-delay: -3s; }
-.particle-four { bottom: 29%; right: 11%; background: rgba(58, 167, 255, 0.85); box-shadow: 0 0 18px rgba(58, 167, 255, 0.7); animation-delay: -4.2s; }
+.particle-four { bottom: 29%; right: 11%; background: rgba(22, 245, 200, 0.85); box-shadow: 0 0 18px rgba(22, 245, 200, 0.7); animation-delay: -4.2s; }
 
 .project-dots {
   display: flex;
@@ -355,11 +356,11 @@
 
 @media (max-width: 1180px) {
   .projects-grid {
-    grid-template-columns: repeat(2, 230px);
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
   }
 
   .project-card {
-    width: 230px;
+    width: 100%;
     height: 340px;
     min-height: 0;
   }
@@ -367,11 +368,11 @@
 
 @media (min-width: 1181px) and (max-height: 820px) {
   .projects-section {
-    padding: 24px 0 14px;
+    padding: 100px 0 14px;
   }
 
   .projects-shell {
-    width: min(960px, calc(100% - 24px));
+    width: min(1080px, calc(100% - 32px));
   }
 
   .projects-heading {
@@ -437,11 +438,11 @@
   }
 
   .projects-grid {
-    grid-template-columns: 230px;
+    grid-template-columns: minmax(0, 360px);
   }
 
   .project-card {
-    width: 230px;
+    width: 100%;
     height: 340px;
     min-height: 0;
     padding: 14px;
@@ -459,6 +460,7 @@
   }
 
   .project-card {
+    width: 100%;
     height: 340px;
     min-height: 0;
     padding: 14px;
