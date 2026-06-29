@@ -16,11 +16,11 @@
     </button>
 
     <nav class="nav-links" [class.open]="menuOpen" aria-label="Main navigation">
-      <a routerLink="/" fragment="home" (click)="closeMenu()">Home</a>
-      <a routerLink="/" fragment="about" (click)="closeMenu()">About</a>
-      <a routerLink="/" fragment="skills" (click)="closeMenu()">Skills</a>
-      <a routerLink="/" fragment="projects" (click)="closeMenu()">Projects</a>
-      <a routerLink="/" fragment="experience" (click)="closeMenu()">Certification</a>
+      <a routerLink="/" fragment="home" [class.active]="isActive('home')" (click)="closeMenu()">Home</a>
+      <a routerLink="/" fragment="about" [class.active]="isActive('about')" (click)="closeMenu()">About</a>
+      <a routerLink="/" fragment="skills" [class.active]="isActive('skills')" (click)="closeMenu()">Skills</a>
+      <a routerLink="/" fragment="projects" [class.active]="isActive('projects')" (click)="closeMenu()">Projects</a>
+      <a routerLink="/" fragment="experience" [class.active]="isActive('experience')" (click)="closeMenu()">Certification</a>
       <a class="nav-cta" routerLink="/" fragment="contact" (click)="closeMenu()">Let's talk</a>
     </nav>
   </div>

@@ -16,7 +16,13 @@ interface HomeStat {
 })
 export class Home implements OnInit, OnDestroy {
   readonly typedRole = signal('');
-  readonly roles = ['Angular Frontend Developer', 'Frontend Developer', 'Web Developer'];
+  readonly roles = [
+    "I'm an Angular Developer",
+    'Frontend Developer',
+    'UI Enthusiast',
+    'Building Modern Web Experiences',
+  ];
+  readonly skillPills = ['Angular', 'TypeScript', 'HTML', 'CSS', 'REST API', 'Responsive UI', 'GSAP'];
   readonly techStack = ['Angular', 'TypeScript', 'HTML', 'CSS', 'JavaScript', 'Git', 'REST APIs'];
   readonly particles = Array.from({ length: 18 }, (_, index) => ({
     id: index,

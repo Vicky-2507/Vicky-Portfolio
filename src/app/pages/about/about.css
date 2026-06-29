@@ -177,7 +177,7 @@
   font-size: clamp(2.75rem, 4.9vw, 4.65rem);
   font-weight: 700;
   line-height: 0.98;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 
 .about-title span {

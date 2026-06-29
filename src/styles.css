@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap');
 
 :root {
   --bg: #08101f;
@@ -12,8 +12,8 @@
   --muted: #9aa9bd;
   --border: rgba(255, 255, 255, 0.09);
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-  --font-heading: 'Space Grotesk', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+  --font-heading: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
 }
 
 * {
@@ -31,6 +31,8 @@ body {
   background: var(--bg);
   font-family: var(--font-body);
   line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: 0;
   overflow-x: hidden;
 }
 
@@ -98,7 +100,7 @@ textarea {
   margin-bottom: 18px;
   font-size: clamp(2.1rem, 4.5vw, 3.65rem);
   line-height: 1.12;
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
 }
 
 .section-title span {
@@ -190,12 +192,13 @@ textarea {
   left: 0;
   z-index: 100;
   width: 100%;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar.scrolled {
-  background: rgba(8, 16, 31, 0.86);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  border-bottom: 1px solid rgba(74, 164, 255, 0.16);
+  background: rgba(3, 17, 39, 0.86);
+  box-shadow: 0 12px 34px rgba(1, 20, 48, 0.38);
   backdrop-filter: blur(18px);
 }
 
@@ -221,25 +224,57 @@ textarea {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 28px;
 }
 
 .nav-links a {
+  position: relative;
+  padding: 8px 0;
   color: #bdc8d7;
   font-size: 0.9rem;
   font-weight: 600;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-.nav-links a:hover {
-  color: var(--primary);
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 1px;
+  left: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4aa4ff, #9ad4ff);
+  box-shadow: 0 0 16px rgba(74, 164, 255, 0.55);
+  opacity: 0;
+  transform: scaleX(0.2);
+  transform-origin: center;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #e8f3ff;
+  text-shadow: 0 0 18px rgba(74, 164, 255, 0.38);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .nav-links .nav-cta {
   padding: 9px 17px;
-  color: var(--text);
-  border: 1px solid rgba(101, 230, 196, 0.4);
+  color: #f1f7ff;
+  border: 1px solid rgba(74, 164, 255, 0.45);
   border-radius: 8px;
+  background: rgba(1, 54, 122, 0.2);
+  box-shadow: 0 0 22px rgba(74, 164, 255, 0.1);
+}
+
+.nav-links .nav-cta::after {
+  display: none;
 }
 
 .menu-toggle {
@@ -295,7 +330,7 @@ textarea {
   margin-bottom: 3px;
   font-size: clamp(4rem, 9vw, 7.4rem);
   line-height: 0.95;
-  letter-spacing: -0.075em;
+  letter-spacing: 0;
 }
 
 .accent-dot,
@@ -307,7 +342,7 @@ textarea {
   min-height: 45px;
   margin: 22px 0 20px;
   font-size: clamp(1.35rem, 3vw, 2rem);
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .cursor {

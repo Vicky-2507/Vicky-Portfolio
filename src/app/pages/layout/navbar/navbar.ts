@@ -10,10 +10,12 @@ import { RouterLink } from '@angular/router';
 export class Navbar {
   menuOpen = false;
   isScrolled = false;
+  activeSection = 'home';
 
   @HostListener('window:scroll')
   onScroll(): void {
     this.isScrolled = window.scrollY > 24;
+    this.updateActiveSection();
   }
 
   toggleMenu(): void {
@@ -22,5 +24,24 @@ export class Navbar {
 
   closeMenu(): void {
     this.menuOpen = false;
+  }
+
+  isActive(section: string): boolean {
+    return this.activeSection === section;
+  }
+
+  private updateActiveSection(): void {
+    const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+    let currentSection = 'home';
+
+    for (const sectionName of sections) {
+      const section = document.getElementById(sectionName);
+
+      if (section && section.offsetTop - 130 <= window.scrollY) {
+        currentSection = section.id;
+      }
+    }
+
+    this.activeSection = currentSection;
   }
 }
